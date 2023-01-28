@@ -27,7 +27,7 @@ class RequestWrapperInterface(Protocol):
         Sends request.
 
         Returns dict with these keys:
-        status: bool - Was request successful of no?
+        status: bool - Was request successful or no?
         error: str - If status is False, error message will be here
         content: str | dict - If status is Ture, response will be here
 

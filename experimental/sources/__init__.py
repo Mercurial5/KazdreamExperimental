@@ -1,8 +1,10 @@
 from experimental.exceptions import SourceNotFound
 from experimental.sources.BaseRepository import BaseRepositoryInterface
 from experimental.sources.BaseSerivce import BaseServiceInterface
-from experimental.sources.shopkz import ShopKZService
 from experimental.utils import BaseParser
+
+from experimental.sources import shopkz
+from experimental.sources import technodom
 
 
 def get_source_service(name: str) -> BaseServiceInterface:

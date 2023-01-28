@@ -10,3 +10,7 @@ class BaseRepositoryInterface:
     @staticmethod
     def list(session: Session, **kwargs):
         pass
+
+    @staticmethod
+    def get(session: Session, **kwargs):
+        pass

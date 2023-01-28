@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 
 from experimental.sources import BaseRepositoryInterface
 from experimental.sources.shopkz import models
-from experimental.sources.shopkz.models import Smartphone
 
 
 class ShopKZRepository(BaseRepositoryInterface):
@@ -16,5 +15,9 @@ class ShopKZRepository(BaseRepositoryInterface):
         return smartphone
 
     @staticmethod
-    def list(session: Session, **kwargs) -> list[Type[Smartphone]]:
+    def list(session: Session, **kwargs) -> list[Type[models.Smartphone]]:
         return session.query(models.Smartphone).filter_by(**kwargs).all()
+
+    @staticmethod
+    def get(session: Session, **kwargs) -> models.Smartphone | None:
+        return session.query(models.Smartphone).filter_by(**kwargs).first()

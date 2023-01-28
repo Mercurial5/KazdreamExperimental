@@ -16,3 +16,6 @@ class ShopKZService(BaseServiceInterface):
 
     def list(self, session: Session, **kwargs) -> list[Type[models.Smartphone]]:
         return self.repo.list(session, **kwargs)
+
+    def get(self, session: Session, **kwargs) -> Type[models.Smartphone] | None:
+        return self.repo.get(session, **kwargs)

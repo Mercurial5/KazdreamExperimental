@@ -14,3 +14,6 @@ class BaseServiceInterface:
 
     def list(self, session: Session, **kwargs):
         pass
+
+    def get(self, session: Session, **kwargs):
+        pass

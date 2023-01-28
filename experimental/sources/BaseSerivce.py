@@ -7,6 +7,7 @@ from experimental.sources.BaseRepository import BaseRepositoryInterface
 
 class BaseServiceInterface:
     repo: BaseRepositoryInterface
+    name = None
 
     def create(self, session: Session, data: dict):
         pass

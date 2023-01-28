@@ -8,6 +8,7 @@ from experimental.sources.shopkz import models
 
 
 class ShopKZService(BaseServiceInterface):
+    name = 'shopkz'
     repo = ShopKZRepository()
 
     def create(self, session: Session, data: dict) -> models.Smartphone:

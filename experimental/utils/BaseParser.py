@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Iterator
 
-from experimental.utils import RequestWrapperInterface
+from experimental.utils import RequestWrapperInterface, RequestWrapper
 
 
 class BaseParser(ABC):
@@ -10,7 +10,9 @@ class BaseParser(ABC):
     Implements the common parts of the code of every parser.
     """
 
-    def __init__(self, request_wrapper: RequestWrapperInterface):
+    name = None
+
+    def __init__(self, request_wrapper: RequestWrapperInterface = RequestWrapper()):
         self.request_wrapper = request_wrapper
 
     def parse_items(self) -> Iterator[Any]:

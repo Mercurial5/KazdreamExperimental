@@ -4,14 +4,14 @@ import re
 from bs4 import BeautifulSoup
 
 from experimental.utils import BaseParser
-from experimental.utils import RequestWrapperInterface
 
 
 class ShopKZParser(BaseParser):
+    name = 'shopkz'
 
-    def __init__(self, link: str, request_wrapper: RequestWrapperInterface):
-        super().__init__(request_wrapper)
-        self.base_link = link
+    def __init__(self):
+        super().__init__()
+        self.base_link = 'https://shop.kz/smartfony/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/'
 
         self.headers = {
             'User-Agent': 'let me in'

@@ -1,9 +1,8 @@
-from typing import Type
-
+from experimental.exceptions import SourceNotFound
 from experimental.sources.BaseRepository import BaseRepositoryInterface
 from experimental.sources.BaseSerivce import BaseServiceInterface
 from experimental.sources.shopkz import ShopKZService
-from experimental.exceptions import SourceNotFound
+from experimental.utils import BaseParser
 
 
 def get_source_service(name: str) -> BaseServiceInterface:
@@ -11,5 +10,14 @@ def get_source_service(name: str) -> BaseServiceInterface:
 
     try:
         return next(source_service)()
+    except StopIteration:
+        raise SourceNotFound(f'Source {name} not found.')
+
+
+def get_source_parser(name: str) -> BaseParser:
+    source_parser = (subclass for subclass in BaseParser.__subclasses__() if name == subclass.name)
+
+    try:
+        return next(source_parser)()
     except StopIteration:
         raise SourceNotFound(f'Source {name} not found.')

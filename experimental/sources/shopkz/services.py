@@ -12,7 +12,8 @@ class ShopKZService(BaseServiceInterface):
     repo = ShopKZRepository()
 
     def create(self, session: Session, data: dict) -> models.Smartphone:
-        return self.repo.create(session, data)
+        if self.repo.get(session, id=data['id']) is None:
+            return self.repo.create(session, data)
 
     def list(self, session: Session, **kwargs) -> list[Type[models.Smartphone]]:
         return self.repo.list(session, **kwargs)

@@ -21,9 +21,7 @@ def parse(source_name: str):
 
     parser = get_source_parser(source_name)
     with Session(engine) as session:
-        [service.create(session, item)
-         for item in parser.parse_items()
-         if service.get(session, id=item['id']) is None]
+        [service.create(session, item) for item in parser.parse_items()]
         session.commit()
 
     return 'All items have been parsed'

@@ -1,12 +1,12 @@
 from sqlalchemy.orm import Session
 
 from experimental.sources import BaseRepositoryInterface
-from experimental.sources.shopkz import SmartphoneRepository
+from experimental.sources.shopkz import ShopKZRepository
 from experimental.sources.shopkz import models
 
 
-class SmartphoneService:
-    repo: BaseRepositoryInterface = SmartphoneRepository()
+class ShopKZService:
+    repo: BaseRepositoryInterface = ShopKZRepository()
 
     def create(self, session: Session, data: dict) -> models.Smartphone:
         return self.repo.create(session, data)

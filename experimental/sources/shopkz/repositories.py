@@ -6,7 +6,7 @@ from experimental.sources.shopkz import models
 from experimental.sources.shopkz.models import Smartphone
 
 
-class SmartphoneRepository:
+class ShopKZRepository:
 
     @staticmethod
     def create(session: Session, data: dict) -> models.Smartphone:

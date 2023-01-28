@@ -1,4 +1,3 @@
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from config import engine
@@ -22,10 +21,8 @@ def parse(source_name: str):
 
     parser = get_source_parser(source_name)
     with Session(engine) as session:
-        [service.create(session, item) for item in parser.parse_items()]
-        try:
-            session.commit()
-        except IntegrityError:
-            return f'Duplicate error! Same item was inserted into database. Check your filters.'
+        [service.create(session, item)
+         for item in parser.parse_items()
+         if service.get(session, id=item['id']) is None]
 
     return 'All items have been parsed'

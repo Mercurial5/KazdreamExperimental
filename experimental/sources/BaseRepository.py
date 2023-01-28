@@ -2,6 +2,9 @@ from sqlalchemy.orm import Session
 
 
 class BaseRepositoryInterface:
+    """
+    Clean architecture - repository layer
+    """
 
     @staticmethod
     def create(session: Session, data: dict):

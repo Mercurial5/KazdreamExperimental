@@ -6,6 +6,10 @@ from experimental.sources.BaseRepository import BaseRepositoryInterface
 
 
 class BaseServiceInterface:
+    """
+    Clean architecture - service layer
+    """
+
     repo: BaseRepositoryInterface
     name = None
 

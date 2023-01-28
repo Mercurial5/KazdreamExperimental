@@ -2,11 +2,12 @@ from typing import Type
 
 from sqlalchemy.orm import Session
 
+from experimental.sources import BaseRepositoryInterface
 from experimental.sources.shopkz import models
 from experimental.sources.shopkz.models import Smartphone
 
 
-class ShopKZRepository:
+class ShopKZRepository(BaseRepositoryInterface):
 
     @staticmethod
     def create(session: Session, data: dict) -> models.Smartphone:

@@ -3,8 +3,8 @@ import re
 
 from bs4 import BeautifulSoup
 
-from experimental.sources import BaseParser
-from experimental.sources.utils import RequestWrapperInterface
+from experimental.utils import BaseParser
+from experimental.utils import RequestWrapperInterface
 
 
 class ShopKZParser(BaseParser):

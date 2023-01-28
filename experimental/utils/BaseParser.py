@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any, Iterator
 
-from experimental.sources.utils import RequestWrapperInterface
+from experimental.utils import RequestWrapperInterface
 
 
 class BaseParser(ABC):

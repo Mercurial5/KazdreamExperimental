@@ -1,12 +1,12 @@
-from typing import Protocol
-
 from sqlalchemy.orm import Session
 
 
-class BaseRepositoryInterface(Protocol):
+class BaseRepositoryInterface:
 
-    def create(self, session: Session, data: dict):
+    @staticmethod
+    def create(session: Session, data: dict):
         pass
 
-    def list(self, session: Session, **kwargs):
+    @staticmethod
+    def list(session: Session, **kwargs):
         pass

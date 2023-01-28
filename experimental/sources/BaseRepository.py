@@ -1,6 +1,6 @@
-from typing import Protocol, Type
+from typing import Protocol
 
-from sqlalchemy.orm import DeclarativeBase, Session
+from sqlalchemy.orm import Session
 
 
 class BaseRepositoryInterface(Protocol):

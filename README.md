@@ -6,6 +6,10 @@
 
 # Installation
 
+### Configure .env
+
+Создайте файл `.env` и скопируйте туда значения из `.env.example`
+
 ### Build the image
 
 ```
@@ -22,8 +26,8 @@ docker compose up
 
 There are two endpoints, one for parsing and one for retrieving items:
 
-* Parse items - http://127.0.0.1:8000/sources/shopkz/parse
-* Retrieve items - http://127.0.0.1:8000/sources/shopkz
+* Parse items - `http://127.0.0.1:8000/sources/shopkz/parse`
+* Retrieve items - `http://127.0.0.1:8000/sources/shopkz`
 
 Note, that `/sources/shopkz/parse` may take some time.
 

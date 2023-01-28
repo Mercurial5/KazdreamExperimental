@@ -5,7 +5,7 @@ from experimental.api import app
 from experimental.sources import get_source_service, get_source_parser
 
 
-@app.route('/<source_name>', methods=['GET'])
+@app.route('/sources/<source_name>', methods=['GET'])
 def show(source_name: str):
     service = get_source_service(source_name)
 
@@ -15,7 +15,7 @@ def show(source_name: str):
         return serialized_items
 
 
-@app.route('/<source_name>/parse', methods=['GET'])
+@app.route('/sources/<source_name>/parse', methods=['GET'])
 def parse(source_name: str):
     service = get_source_service(source_name)
 
@@ -24,5 +24,6 @@ def parse(source_name: str):
         [service.create(session, item)
          for item in parser.parse_items()
          if service.get(session, id=item['id']) is None]
+        session.commit()
 
     return 'All items have been parsed'
